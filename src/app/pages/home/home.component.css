@@ -1,0 +1,107 @@
+
+
+
+.clubIndex .indexInfo {
+  padding: 3rem 0.5rem 2rem;
+  line-height: 1.8;
+  color: #fff;
+}
+
+.block-list-padding {
+  margin: 0 -5rem;
+}
+
+.clubIndex .indexSection ul li{
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 3rem;
+}
+
+.block-list-padding li {
+    padding: 0 0.5rem;
+  }
+
+  .clubIndex .indexItem {
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 15%);
+    display: block;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+.clubIndex .indexImg {
+  height: 10.7rem;
+  overflow: hidden;
+}
+
+.clubIndex .indexBadge {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 25%);
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  margin-left: -50px;
+  border-radius: 100%;
+  background: #fff;
+}
+
+.t1 .clubColourBg {
+    background: #19d823;
+    color: #0c0b0b;
+}
+
+.t2 .clubColourBg {
+  background: #fe0002;
+  color: #050505;
+}
+
+.t3 .clubColourBg {
+    background: #9c007a;
+    color: #0c0c0c;
+}
+
+.t4 .clubColourBg {
+    background: #258c9e;
+    color: #0c0b0b;
+}
+
+.t5 .clubColourBg {
+    background: #dfcc25;
+    color: #070606;
+}
+
+.clubIndex .indexImg__img {
+    position: relative;
+    display: block;
+    height: 100%;
+    background-position: 50%;
+    background-size: cover;
+    background-image: url(https://www.premierleague.com/resources/prod/52355ab-3790/i/bg-elements/mc-scorebox-sml.jpg);
+    transition: transform 2s;
+}
+
+
+
+.badge-image-container .badge-image--70 {
+    width: 4.4rem;
+    height: 4.4rem;
+}
+.badge-image-container .badge-image {
+    vertical-align: middle;
+}
+.clubIndex .indexBadge-mob {
+    display: none;
+}
+.badge-image-container .badge-image--25 {
+    width: 1.7rem;
+    height: 1.7rem;
+}
+.badge-image-container .badge-image {
+    vertical-align: middle;
+}
+
+
+
+

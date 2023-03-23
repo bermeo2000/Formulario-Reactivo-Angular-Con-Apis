@@ -1,46 +1,4 @@
-body{
-    background-color: #f8f8f8;
-}
-
-.fondo-verde{
-    background-color: #2f00ff;
-}
-
-.fondo-naranja{
-    background-color: #050504;
-}
-
-.margen-tabla{
-    margin-top: 20px;
-    margin-left: 100px;
-    margin-right: 100px; 
-    background-color: #f8f8f8;
-}
-
-.boton-add{
-    display: flex;
-    justify-content: right;
-}
-
-.boton-color{
-    background-color: #000000;
-    color: #F8F8F8;
-}
-
-.margen-in{
-    margin-top: 10px;
-    padding: 10px;
-}
-
-.colores-form{
-    background-color: #09298f;
-}
-
-.tabla-cent{
-    text-align: center;
-}
-
-.img-w-h{
-    max-width: 50px !important;
-    max-height: 50px !important;
+.t11 .clubColourBg {
+    background: #9c007a;
+    color: #fff;
 }
