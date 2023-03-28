@@ -58,7 +58,6 @@ this.getAll();
   }
   
   getAll(){
-    debugger
     this.presidenteSer.getPresidente().subscribe({
       next: (res) => {
         this.presidentes = [];
@@ -76,7 +75,6 @@ this.getAll();
       },
     });
   }
-
   store(){
     if (this.formPresidentes.valid) {
 
