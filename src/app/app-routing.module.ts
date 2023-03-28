@@ -1,3 +1,4 @@
+import { PresidentesComponent } from './components/presidentes/presidentes.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'equipos',
     component: EquiposComponent
+  },
+  {
+    path: 'presidente',
+    component: PresidentesComponent
   },
 ];
 

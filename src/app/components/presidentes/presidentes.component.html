@@ -1,0 +1,303 @@
+
+<div class="content-wrapper">
+
+    <div class="row margen-tabla">
+        <div class="col-12 boton-add">
+            <a class="boton-color btn" (click)="agregar()" *ngIf="isAdd === false && isUpdate === false"><i class="fas fa-solid fa-plus mx-1"></i><b class="mx-2">Agregar un nuevo Presidente</b></a>  
+        </div>
+    </div>
+
+    <!-- Tabla -->
+
+    <div class="row margen-tabla" *ngIf="isAdd === false && isUpdate === false">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header  fondo-verde">
+              <h3 class="card-title"><i class="fa-sharp fa-solid fa-tags"></i><b> Presidente</b></h3>
+                <!-- BUSCADOR -->
+              <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 250px;">
+                  <input type="text" class="form-control float-right" name="text" placeholder="Buscar" [(ngModel)]="text">
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0" style="height: 350px;">
+                <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                      <tr class="tabla-cent">
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cedula</th>
+                        <th>Telefono</th>
+                        <th>Direccion</th>
+                        <th>Acciones</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                  
+              
+                      <tr *ngFor="let r of presidentes | tabla: text" class="tabla-cent">
+                        <td class="align-middle">{{r.id}}</td>
+                        <td class="align-middle">{{r.nombre}}</td>
+                        <td class="align-middle">{{r.apellido}}</td>
+                        <td class="align-middle">{{r.cedula}}</td>
+                        <td class="align-middle">{{r.telefono}}</td>
+                        <td class="align-middle">{{r.direccion}}</td>
+                        
+                    
+                          <td class="align-middle">
+                            <a class="btn btn-primary" (click)="edit(r.id)"> Editar
+                              <i class="bi bi-pencil-fill"></i>
+    
+                            </a>
+                            <a class="btn btn-danger mx-1" (click)="delete(r.id)">Eliminar
+                              <i class="fas fa-solid fa-trash"></i>
+                            </a>
+  
+                          </td>
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+              
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+    </div>
+
+    <!-- LOS FOMULARIOS SE PUEDEN OPTIMIZAR CON MENOS CODIGO PERO ME DA PEREZA -->
+
+    <!-- Formulario Ingreso-->
+
+    <div class="margen-tabla card mt-5" *ngIf="isAdd === true">
+        <div class="colores-form card-header">
+          <h3 class="texto card-title"><i class="fas fa-solid fa-plus me-2"></i> Agregar un nuevo presidente</h3>
+        </div>
+  
+        <div class="card-body">
+            <form [formGroup]="formPresidentes" action="" class="formulario">
+
+      
+              <div class="row justify-content-center">
+                <div class="col-8 margen-in ">
+                  <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-solid fa-keyboard"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nombre"  formControlName="nombre">
+                  </div>
+                  <div class="alert alert-danger" role="alert" 
+                  *ngIf="formPresidentes.get('nombre')?.touched && formPresidentes.get('nombre')?.errors?.['required']">
+                    Campo requerido
+                  </div>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-8 margen-in">
+                  <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-solid fa-keyboard"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Apellido"  formControlName="apellido">
+                  </div>
+                  <div class="alert alert-danger" role="alert" 
+                  *ngIf="formPresidentes.get('apellido')?.touched && formPresidentes.get('apellido')?.errors?.['required']">
+                    Campo requerido
+                  </div>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-8 margen-in">
+                  <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-solid fa-keyboard"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Cedula"  formControlName="cedula">
+                  </div>
+                  <div class="alert alert-danger" role="alert" 
+                  *ngIf="formPresidentes.get('cedula')?.touched && formPresidentes.get('cedula')?.errors?.['required']">
+                    Campo requerido
+                  </div>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-8 margen-in">
+                  <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-solid fa-keyboard"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Telefono"  formControlName="telefono">
+                  </div>
+                  <div class="alert alert-danger" role="alert" 
+                  *ngIf="formPresidentes.get('telefono')?.touched && formPresidentes.get('telefono')?.errors?.['required']">
+                    Campo requerido
+                  </div>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-8 margen-in">
+                  <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-solid fa-keyboard"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Direccion"  formControlName="direccion">
+                  </div>
+                  <div class="alert alert-danger" role="alert" 
+                  *ngIf="formPresidentes.get('direccion')?.touched && formPresidentes.get('direccion')?.errors?.['required']">
+                    Campo requerido
+                  </div>
+                </div>
+              </div>
+              
+        
+              <div class="d-flex justify-content-between mt-3">
+                <a class="boton-color boton-editar btn" (click)="regresar()">Regresar<i class="fas fa-solid fa-arrow-left"></i></a>
+                <a class="boton-color boton-editar btn" (click)="store()"><b>Guardar</b></a>
+              </div>
+                
+            </form>
+        </div>
+        <!-- /.card-body -->
+  
+        <!-- <div class="card-footer">
+            usar en caso de emergencia
+        </div> -->
+    
+      </div>
+  
+      <!-- Formulario Actualizar-->
+  
+      <div class="margen-tabla card mt-5" *ngIf="isUpdate === true">
+        <div class="colores-form card-header">
+          <h3 class="texto card-title"><i class="fas fa-solid fa-pen me-2"></i> Actualizar una categoría</h3>
+        </div>
+  
+        <div class="card-body">
+            <form [formGroup]="formUpdatePresidentes" class="formulario">
+        
+                
+                  <div class="row">
+                    <div class="col-12 margen-in">
+                      <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-solid fa-keyboard"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Nombre"  formControlName="nombre">
+                      </div>
+                      <div class="alert alert-danger" role="alert" 
+                      *ngIf="formPresidentes.get('nombre')?.touched && formPresidentes.get('nombre')?.errors?.['required']">
+                        Campo requerido
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 margen-in">
+                      <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-solid fa-keyboard"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Apellido"  formControlName="apellido">
+                      </div>
+                      <div class="alert alert-danger" role="alert" 
+                      *ngIf="formPresidentes.get('apellido')?.touched && formPresidentes.get('apellido')?.errors?.['required']">
+                        Campo requerido
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 margen-in">
+                      <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-solid fa-keyboard"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Cedula"  formControlName="cedula">
+                      </div>
+                      <div class="alert alert-danger" role="alert" 
+                      *ngIf="formPresidentes.get('cedula')?.touched && formPresidentes.get('cedula')?.errors?.['required']">
+                        Campo requerido
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 margen-in">
+                      <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-solid fa-keyboard"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Telefono"  formControlName="telefono">
+                      </div>
+                      <div class="alert alert-danger" role="alert" 
+                      *ngIf="formPresidentes.get('telefono')?.touched && formPresidentes.get('telefono')?.errors?.['required']">
+                        Campo requerido
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 margen-in">
+                      <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-solid fa-keyboard"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Direccion"  formControlName="direccion">
+                      </div>
+                      <div class="alert alert-danger" role="alert" 
+                      *ngIf="formPresidentes.get('direccion')?.touched && formPresidentes.get('direccion')?.errors?.['required']">
+                        Campo requerido
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label  class="form-label">Nombre</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                    </svg>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Nombre"  formControlName="nombre">
+                      </div>
+                      <div class="alert alert-danger" role="alert" 
+                      *ngIf="formPresidentes.get('nombre')?.touched && formPresidentes.get('nombre')?.errors?.['required']">
+                        Campo requerido
+                      </div>
+                  </div>
+
+                  <div class="col-md-3">
+                      <label class="form-label">Apellido</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                      </svg>
+                      </span>
+                      <input type="text" class="form-control" placeholder="apellido"  formControlName="apellido"> 
+                      </div>          
+                      <div class="alert alert-danger" role="alert" 
+                      *ngIf="formPresidentes.get('apellido')?.touched && formPresidentes.get('apellido')?.errors?.['required']">
+                        Campo requerido
+                      </div>
+                  </div>
+              <div class="d-flex justify-content-between mt-3">
+                <a class="boton-color boton-editar btn" (click)="regresar()">Regresar<i class="fas fa-solid fa-arrow-left"></i></a>
+                <a class="boton-color boton-editar btn" (click)="update()" ><b>Actualizar</b></a>
+              </div>
+                
+            </form>
+        </div>
+        <!-- /.card-body -->
+  
+        <!-- <div class="card-footer">
+            usar en caso de emergencia
+        </div> -->
+    
+      </div>
+
+
+
+</div>

@@ -10,6 +10,7 @@ import { TablaPipe } from './pipes/tabla.pipe';
 import { TecnicosComponent } from './components/tecnicos/tecnicos.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavComponent } from './pages/nav/nav.component';
+import { PresidentesComponent } from './components/presidentes/presidentes.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavComponent } from './pages/nav/nav.component';
     TablaPipe,
     TecnicosComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    PresidentesComponent
   ],
   imports: [
     BrowserModule,
