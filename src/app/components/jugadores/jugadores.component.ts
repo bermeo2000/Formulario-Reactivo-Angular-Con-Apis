@@ -63,6 +63,7 @@ export class JugadoresComponent implements OnInit {
 this.getAll();
   }
   getAll(){
+    
     this.jugadoresSer.getJugador().subscribe({
       next: (res) => {
         this.jugador = [];

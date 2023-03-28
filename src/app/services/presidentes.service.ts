@@ -11,7 +11,7 @@ export class PresidenteService {
 
   constructor(private http:HttpClient) { }
   getPresidente(){
-    return this.http.get<any>(`${environment.urlApi}Presidente`)
+    return this.http.get<any>(`${environment.urlApi}presidentes`)
   }
 
   storePresidente(form:Presidentes){
@@ -23,18 +23,18 @@ export class PresidenteService {
     data.append('direccion', form.direccion.toString());
 
 
-    return this.http.post<any>(`${environment.urlApi}Presidente`, data);
+    return this.http.post<any>(`${environment.urlApi}presidentes`, data);
   }
 
   updatePresidente(form:any, id:number){
-    return this.http.put<any>(`${environment.urlApi}Presidente/${id}`, form)
+    return this.http.put<any>(`${environment.urlApi}presidentes/${id}`, form)
   }
 
   deletePresidente(id:number){
-    return this.http.delete<any>(`${environment.urlApi}Presidente/${id}`)
+    return this.http.delete<any>(`${environment.urlApi}presidentes/${id}`)
   }
 
   showPresidente(id:any){
-    return this.http.get<any>(`${environment.urlApi}Presidente/${id}`)
+    return this.http.get<any>(`${environment.urlApi}presidentes/${id}`)
   }
 }
