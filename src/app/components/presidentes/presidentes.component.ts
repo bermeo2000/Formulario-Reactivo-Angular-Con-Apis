@@ -68,7 +68,7 @@ this.getAll();
       error: (err) => {
           console.log(err);
           Swal.fire({
-            title: 'Ocurrió un problema con la carga de datos',
+            title: 'Ocurrió un problema con la carga de datos no creo',
             text: err.message,
             icon: 'error',
             confirmButtonText: 'Ok'
